@@ -1,8 +1,11 @@
-﻿namespace Interfaces
+﻿using Entities;
+
+namespace Interfaces
 {
     public interface IUnitOfWork
     {
-        //IUserRepository userRepository;
-        Task<int> CommitAsync();
+        IUserRepository<UserEntity> userRepository { get; }
+        public Task<int> SaveChangesAsync();
+        public void Dispose();
     }
 }

@@ -2,7 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
-namespace DataAccess
+namespace DatabaseContext
 {
     public class DBContext
     {
@@ -12,7 +12,7 @@ namespace DataAccess
         public DBContext(IConfiguration configuration)
         {
             _configuration = configuration;
-            _connectionString = _configuration.GetConnectionString("ConnectionStrings");
+            _connectionString = _configuration.GetConnectionString("DefaultConnection");
         }
 
         public IDbConnection CreateConnection()
